@@ -13,27 +13,38 @@ import java.util.Scanner;
 public class DemoAngkutan {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+         Scanner input = new Scanner(System.in);
+        char lagi;
 
-        System.out.print("Masukkan Nama Penumpang: ");
-        String nama = input.nextLine();
+        do {
+            System.out.print("\nMasukkan Nama Penumpang: ");
+            String nama = input.nextLine();
 
-        System.out.print("Masukkan No Tiket: ");
-        String noTiket = input.nextLine();
+            System.out.print("Masukkan No Tiket: ");
+            String noTiket = input.nextLine();
 
-        System.out.print("Jenis Penumpang (1.Regular / 2.VIP): ");
-        int pilihan = input.nextInt();
+            System.out.print("Jenis Penumpang (1. Reguler / 2. VIP): ");
+            int jenis = input.nextInt();
+            input.nextLine(); // hapus newline
 
-        Penumpang penumpang;
+            Penumpang penumpang;
 
-        if (pilihan == 1) {
-            penumpang = new PenumpangRegular(nama, noTiket);
-            penumpang.tampilkanData("Regular");
-        } else {
-            penumpang = new PenumpangVIP(nama, noTiket);
-            penumpang.tampilkanData("VIP");
-        }
+            if (jenis == 1) {
+                penumpang = new PenumpangReguler(nama, noTiket);
+                penumpang.tampilkanData("Reguler");
+            } else {
+                penumpang = new PenumpangVIP(nama, noTiket);
+                penumpang.tampilkanData("VIP");
+            }
+
+            System.out.print("Tambah penumpang lagi? (y/n): ");
+            lagi = input.next().charAt(0);
+            input.nextLine();
+
+        } while (lagi == 'y' || lagi == 'Y');
 
         input.close();
     }
 }
+    
+
