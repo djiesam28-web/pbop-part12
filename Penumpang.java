@@ -10,27 +10,25 @@ package com.mycompany.demoangkutan;
  */
    abstract public class Penumpang {
    
-    protected String nama;
+     protected String nama;
     protected String noTiket;
 
     public Penumpang(String nama, String noTiket) {
         this.nama = nama;
         this.noTiket = noTiket;
     }
+    public abstract double hitungHargaTiket();   
+   
+    public void tampilkanData() {
+        System.out.println("Nama         : " + nama);
+        System.out.println("No Tiket     : " + noTiket);
+        System.out.println("Harga Tiket  : Rp " + hitungHargaTiket());
+    }
 
    
-    public abstract double hitungHargaTiket();
-
-
-    public void tampilkanData() {
-        System.out.println("Nama       : " + nama);
-        System.out.println("No Tiket   : " + noTiket);
-        System.out.println("Harga Tiket: Rp " + hitungHargaTiket());
-    }
-
     public void tampilkanData(String jenis) {
-        System.out.println("Jenis      : " + jenis);
+        System.out.println("Jenis        : " + jenis);
         tampilkanData();
+        System.out.println("------------------------------------");
     }
-}
-
+   }
