@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
@@ -13,7 +14,11 @@ import java.util.Scanner;
 public class DemoAngkutan {
 
     public static void main(String[] args) {
-         Scanner input = new Scanner(System.in);
+  
+        InputPenumpang info = new InputPenumpang();
+        info.tampilPesan(); // menampilkan judul program
+
+        Scanner input = new Scanner(System.in);
         char lagi;
 
         do {
@@ -39,12 +44,15 @@ public class DemoAngkutan {
 
             System.out.print("Tambah penumpang lagi? (y/n): ");
             lagi = input.next().charAt(0);
-            input.nextLine();
+            input.nextLine(); // hapus newline
 
         } while (lagi == 'y' || lagi == 'Y');
 
+        System.out.println("\nInput data penumpang selesai.");
         input.close();
     }
 }
+    
+
     
 
